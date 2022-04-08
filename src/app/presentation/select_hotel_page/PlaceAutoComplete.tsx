@@ -1,6 +1,6 @@
-import AreaInfoDto from "../model/AreaInfoDto";
+import AreaInfoDto from "../../model/AreaInfoDto";
 import {Autocomplete, TextField} from "@mui/material";
-import PlaceInfo from "../model/PlaceInfo";
+import PlaceInfo from "../../model/PlaceInfo";
 
 interface PlaceAutoCompleteProps {
     loading: boolean

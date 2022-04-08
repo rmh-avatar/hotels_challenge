@@ -1,7 +1,7 @@
 import {Button, Card, CardContent, TextField, Typography} from "@mui/material";
 import './SelectHotelPage.css';
-import useAxios from "../hooks/useAxios";
-import ApiResponseDto from "../model/ApiResponseDto";
+import useAxios from "../../hooks/useAxios";
+import ApiResponseDto from "../../model/ApiResponseDto";
 import PlaceAutoComplete from "./PlaceAutoComplete";
 import DatePicker from "@mui/lab/DatePicker";
 import {useEffect, useState} from "react";
@@ -17,7 +17,7 @@ function SelectHotelPage() {
     useEffect(() => {
         checkIn ? setCheckOut(addDays(checkIn, 1)) : setCheckOut(checkIn)
     }, [checkIn]);
-    
+
     return <div className="container">
         <Card className="card" variant="outlined">
             <CardContent>

@@ -44,6 +44,7 @@ export default function PlaceAutoComplete(props: PlaceAutoCompleteProps) {
             noOptionsText={"Sin opciones"}
             renderInput={(params) => <TextField
                 {...params}
+                placeholder="Seleccione destino u hotel"
                 error={!!props.errorMessage}
                 helperText={props.errorMessage}
             />}

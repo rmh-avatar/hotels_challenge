@@ -1,11 +1,10 @@
 .container {
     display: flex;
     flex-direction: column;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-left: auto;
-    margin-right: auto;
+    justify-content: center;
+    margin: 0 auto;
     width: 100%;
+    height: 100%;
 }
 
 .card-content-container {
@@ -14,16 +13,20 @@
 }
 
 .card {
-    width: 70%;
+    width: 100%;
+    margin: auto;
     flex-grow: 1;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 0;
-    border-color: #61dafb;
+    border-radius: 0 !important;
+    border-color: #00b3ff !important;
+    --tw-shadow-color: #000;
+    --tw-ring-shadow: #000;
+    --tw-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --tw-shadow-colored: 0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -2px var(--tw-shadow-color);
+    box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
 .card-header {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5rem !important;
 }
 
 .form-group {
@@ -44,6 +47,22 @@ label {
 
 .button {
     text-transform: none !important;
-    margin-bottom: 1rem !important;
     margin-right: 0.5rem !important;
+    background-color: #00b3ff !important;
+}
+
+@media screen and (min-width: 600px) {
+    .card {
+        width: 80%;
+    }
+
+    .container {
+        margin: 1.4rem auto;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .card {
+        width: 30%;
+    }
 }

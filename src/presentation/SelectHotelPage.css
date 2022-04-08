@@ -1,0 +1,49 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+.card-content-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.card {
+    width: 70%;
+    flex-grow: 1;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 0;
+    border-color: #61dafb;
+}
+
+.card-header {
+    margin-bottom: 0.5rem;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+label {
+    font-size: 80%;
+    font-weight: 400;
+    display: inline-block;
+    margin-bottom: 0.5rem;
+}
+
+.button-container {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+.button {
+    text-transform: none !important;
+    margin-bottom: 1rem !important;
+    margin-right: 0.5rem !important;
+}

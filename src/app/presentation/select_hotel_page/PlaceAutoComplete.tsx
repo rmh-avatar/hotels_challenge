@@ -5,7 +5,9 @@ import PlaceInfo from "../../model/PlaceInfo";
 interface PlaceAutoCompleteProps {
     loading: boolean
     areasInfo: AreaInfoDto[] | undefined
-    errorMessage?: string
+    errorMessage?: string,
+    value: PlaceInfo | null,
+    handleChangeValue: (placeInfo: PlaceInfo | null) => void
 }
 
 export default function PlaceAutoComplete(props: PlaceAutoCompleteProps) {
@@ -35,18 +37,22 @@ export default function PlaceAutoComplete(props: PlaceAutoCompleteProps) {
     places.sort((a, b) => a.title.localeCompare(b.title))
 
     return (<Autocomplete
-            options={places.sort((a, b) => a.type.localeCompare(b.type))}
-            groupBy={(option) => option.type}
-            getOptionLabel={(option) => option.title}
-            fullWidth
-            loading={props.loading}
-            loadingText={"Cargando..."}
-            noOptionsText={"Sin opciones"}
-            renderInput={(params) => <TextField
-                {...params}
-                placeholder="Seleccione destino u hotel"
-                error={!!props.errorMessage}
-                helperText={props.errorMessage}
-            />}
-        />)
+        value={props.value}
+        onChange={(event, newValue) => {
+            props.handleChangeValue(newValue);
+        }}
+        options={places.sort((a, b) => a.type.localeCompare(b.type))}
+        groupBy={(option) => option.type}
+        getOptionLabel={(option) => option.title}
+        fullWidth
+        loading={props.loading}
+        loadingText={"Cargando..."}
+        noOptionsText={"Sin opciones"}
+        renderInput={(params) => <TextField
+            {...params}
+            placeholder="Seleccione destino u hotel"
+            error={!!props.errorMessage}
+            helperText={props.errorMessage}
+        />}
+    />)
 }

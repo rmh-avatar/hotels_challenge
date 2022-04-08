@@ -4,7 +4,7 @@ import useAxios from "../hooks/useAxios";
 import ApiResponseDto from "../model/ApiResponseDto";
 import PlaceAutoComplete from "./PlaceAutoComplete";
 import DatePicker from "@mui/lab/DatePicker";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {addDays} from "date-fns";
 
 function SelectHotelPage() {
@@ -14,6 +14,10 @@ function SelectHotelPage() {
 
     const today = new Date()
 
+    useEffect(() => {
+        checkIn ? setCheckOut(addDays(checkIn, 1)) : setCheckOut(checkIn)
+    }, [checkIn]);
+    
     return <div className="container">
         <Card className="card" variant="outlined">
             <CardContent>
@@ -30,7 +34,6 @@ function SelectHotelPage() {
                             value={checkIn}
                             onChange={(newValue) => {
                                 setCheckIn(newValue)
-                                newValue && setCheckOut(addDays(newValue, 1))
                             }}
                             minDate={today}
                             maxDate={addDays(today, 100)}

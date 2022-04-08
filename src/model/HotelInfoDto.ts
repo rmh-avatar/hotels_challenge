@@ -1,4 +1,4 @@
-export default interface HotelInfo {
+export default interface HotelInfoDto {
     hotelCode: string
     hotelName: string
 }

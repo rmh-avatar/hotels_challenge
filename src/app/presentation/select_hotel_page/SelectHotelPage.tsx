@@ -1,12 +1,24 @@
-import {Button, Card, CardContent, TextField, Typography} from "@mui/material";
 import './SelectHotelPage.css';
-import useAxios from "../../hooks/useAxios";
-import ApiResponseDto from "../../model/ApiResponseDto";
-import PlaceAutoComplete from "./PlaceAutoComplete";
-import DatePicker from "@mui/lab/DatePicker";
-import {useEffect, useState} from "react";
-import {addDays} from "date-fns";
-import PlaceInfo from "../../model/PlaceInfo";
+
+import {
+  useEffect,
+  useState,
+} from 'react';
+
+import { addDays } from 'date-fns';
+
+import {
+  Button,
+  Card,
+  CardContent,
+  Typography,
+} from '@mui/material';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+
+import useAxios from '../../hooks/useAxios';
+import ApiResponseDto from '../../model/ApiResponseDto';
+import PlaceInfo from '../../model/PlaceInfo';
+import PlaceAutoComplete from './PlaceAutoComplete';
 
 function SelectHotelPage() {
     const [{data, loading, error}] = useAxios<ApiResponseDto>('hotels')
@@ -45,26 +57,26 @@ function SelectHotelPage() {
                         <label>Check In</label>
                         <DatePicker
                             value={checkIn}
-                            onChange={(newValue) => {
+                            onChange={(newValue: any) => {
                                 setCheckIn(newValue)
                             }}
                             disabled={!place}
                             minDate={today}
                             maxDate={addDays(today, 100)}
-                            renderInput={(params) => <TextField {...params} fullWidth/>}
+                            slotProps={{ textField: { fullWidth: true } }}
                         />
                     </div>
                     <div className="form-group">
                         <label>Check Out</label>
                         <DatePicker
                             value={checkOut}
-                            onChange={(newValue) => {
+                            onChange={(newValue: any) => {
                                 setCheckOut(newValue)
                             }}
                             disabled={!checkIn}
                             minDate={checkIn && addDays(checkIn, 1)}
                             maxDate={checkIn && addDays(checkIn, 30)}
-                            renderInput={(params) => <TextField {...params} fullWidth/>}
+                            slotProps={{ textField: { fullWidth: true } }}
                         />
                     </div>
                     <div className="button-container">
